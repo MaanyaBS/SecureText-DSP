@@ -1,0 +1,56 @@
+SecureText automated test run
+Environment: Python 3.13.17 on Linux 6.18.44-fc-v153; cryptography 50.0.1
+Command: python -m unittest discover -s tests -v
+Note: GUI rendering is NOT covered (no Tkinter/display in the test environment).
+
+test_T12_roundtrip (test_encryption.EncryptionTests.test_T12_roundtrip) ... ok
+test_T13_ciphertext_is_base64_256_bytes (test_encryption.EncryptionTests.test_T13_ciphertext_is_base64_256_bytes) ... ok
+test_T14_oaep_is_randomised (test_encryption.EncryptionTests.test_T14_oaep_is_randomised) ... ok
+test_T15_wrong_private_key_fails (test_encryption.EncryptionTests.test_T15_wrong_private_key_fails) ... ok
+test_T16_invalid_ciphertext (test_encryption.EncryptionTests.test_T16_invalid_ciphertext) ... ok
+test_T17_tampered_ciphertext_fails (test_encryption.EncryptionTests.test_T17_tampered_ciphertext_fails) ... ok
+test_T18_oversized_message_rejected (test_encryption.EncryptionTests.test_T18_oversized_message_rejected) ... ok
+test_T19_unicode (test_encryption.EncryptionTests.test_T19_unicode) ... ok
+test_T20_unicode_limit_counts_bytes (test_encryption.EncryptionTests.test_T20_unicode_limit_counts_bytes) ... ok
+test_T21_empty_input (test_encryption.EncryptionTests.test_T21_empty_input) ... ok
+test_T22_whitespace_in_ciphertext_tolerated (test_encryption.EncryptionTests.test_T22_whitespace_in_ciphertext_tolerated) ... ok
+test_T42_tamper_helper_breaks_decryption (test_encryption.TamperDemoTests.test_T42_tamper_helper_breaks_decryption) ... ok
+test_T43_tamper_envelope_helper (test_hybrid_encryption.HybridTamperDemoTests.test_T43_tamper_envelope_helper) ... ok
+test_T31_roundtrip_long_message (test_hybrid_encryption.HybridTests.test_T31_roundtrip_long_message) ... ok
+test_T32_envelope_structure (test_hybrid_encryption.HybridTests.test_T32_envelope_structure) ... ok
+test_T33_fresh_key_and_nonce_each_time (test_hybrid_encryption.HybridTests.test_T33_fresh_key_and_nonce_each_time) ... ok
+test_T34_tampered_ciphertext_detected (test_hybrid_encryption.HybridTests.test_T34_tampered_ciphertext_detected) ... ok
+test_T35_tampered_tag_detected (test_hybrid_encryption.HybridTests.test_T35_tampered_tag_detected) ... ok
+test_T36_tampered_nonce_and_wrapped_key (test_hybrid_encryption.HybridTests.test_T36_tampered_nonce_and_wrapped_key) ... ok
+test_T37_header_is_authenticated_version_check (test_hybrid_encryption.HybridTests.test_T37_header_is_authenticated_version_check) ... ok
+test_T38_wrong_private_key (test_hybrid_encryption.HybridTests.test_T38_wrong_private_key) ... ok
+test_T39_malformed_envelopes (test_hybrid_encryption.HybridTests.test_T39_malformed_envelopes) ... ok
+test_T40_unicode_hybrid (test_hybrid_encryption.HybridTests.test_T40_unicode_hybrid) ... ok
+test_T41_empty_input (test_hybrid_encryption.HybridTests.test_T41_empty_input) ... ok
+test_T01_generate_2048 (test_keys.KeyTests.test_T01_generate_2048) ... ok
+test_T02_reject_small_key_size (test_keys.KeyTests.test_T02_reject_small_key_size) ... ok
+test_T03_math_relationships (test_keys.KeyTests.test_T03_math_relationships) ... ok
+test_T04_public_pem_roundtrip (test_keys.KeyTests.test_T04_public_pem_roundtrip) ... ok
+test_T05_private_pem_is_encrypted_and_roundtrips (test_keys.KeyTests.test_T05_private_pem_is_encrypted_and_roundtrips) ... ok
+test_T06_wrong_password_rejected (test_keys.KeyTests.test_T06_wrong_password_rejected) ... ok
+test_T07_short_or_empty_password_rejected_on_export (test_keys.KeyTests.test_T07_short_or_empty_password_rejected_on_export) ... ok
+test_T08_invalid_key_files (test_keys.KeyTests.test_T08_invalid_key_files) ... ok
+test_T09_public_key_not_accepted_as_private (test_keys.KeyTests.test_T09_public_key_not_accepted_as_private) ... ok
+test_T10_private_key_file_save_and_load (test_keys.KeyTests.test_T10_private_key_file_save_and_load) ... ok
+test_T11_fingerprint_stable_and_distinct (test_keys.KeyTests.test_T11_fingerprint_stable_and_distinct) ... ok
+test_T23_sign_and_verify (test_signatures.SignatureTests.test_T23_sign_and_verify) ... ok
+test_T24_modified_message_fails (test_signatures.SignatureTests.test_T24_modified_message_fails) ... ok
+test_T25_wrong_public_key_fails (test_signatures.SignatureTests.test_T25_wrong_public_key_fails) ... ok
+test_T26_pss_is_randomised_but_both_verify (test_signatures.SignatureTests.test_T26_pss_is_randomised_but_both_verify) ... ok
+test_T27_corrupted_or_malformed_signature (test_signatures.SignatureTests.test_T27_corrupted_or_malformed_signature) ... ok
+test_T28_empty_inputs (test_signatures.SignatureTests.test_T28_empty_inputs) ... ok
+test_T29_unicode_signature (test_signatures.SignatureTests.test_T29_unicode_signature) ... ok
+test_T30_signature_not_confidential (test_signatures.SignatureTests.test_T30_signature_not_confidential) ... ok
+test_T44_classic_example (test_toy_rsa.ToyRSATests.test_T44_classic_example) ... ok
+test_T45_invalid_parameters (test_toy_rsa.ToyRSATests.test_T45_invalid_parameters) ... ok
+test_T46_is_prime (test_toy_rsa.ToyRSATests.test_T46_is_prime) ... ok
+
+----------------------------------------------------------------------
+Ran 46 tests in 0.243s
+
+OK

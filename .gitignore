@@ -1,0 +1,38 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.idea/
+.vscode/
+*.pem
+*.key
+!tests/fixtures/*.pem
+dist/
+build/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+secrets/
+credentials.json
+passwords.txt
+
+# Private keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+private_key*
+*_private_key*
+id_rsa
+
+# Virtual environments and Python cache
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Local runtime output
+logs/
+*.log

@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant S as Sender
+    participant A as SecureText
+    participant R as Recipient
+    R->>S: Public key PEM
+    S->>A: Plaintext, max 190 bytes for 2048 bit key
+    A->>A: Check length, encode UTF-8
+    A->>A: RSA-OAEP with SHA-256 using public key
+    A->>S: Ciphertext in Base64
+    S->>R: Send Base64 ciphertext
+    R->>A: Paste ciphertext
+    A->>A: Base64 decode, RSA-OAEP decrypt with private key
+    A->>R: Plaintext, or error if wrong key or modified

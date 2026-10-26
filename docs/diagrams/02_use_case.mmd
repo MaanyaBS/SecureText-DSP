@@ -1,0 +1,28 @@
+flowchart LR
+    A(["Sender"])
+    R(["Recipient"])
+    subgraph SYS["SecureText system"]
+        U1("Generate RSA key pair")
+        U2("Export or import keys")
+        U3("Encrypt message with recipient public key")
+        U4("Decrypt message with own private key")
+        U5("Sign message with own private key")
+        U6("Verify signature with signer public key")
+        U7("Hybrid encrypt or decrypt long message")
+        U8("Run tamper and wrong key demos")
+        U9("Study RSA mathematics")
+    end
+    A --> U1
+    A --> U2
+    A --> U3
+    A --> U5
+    A --> U7
+    R --> U1
+    R --> U2
+    R --> U4
+    R --> U6
+    R --> U7
+    A --> U8
+    R --> U8
+    A --> U9
+    R --> U9

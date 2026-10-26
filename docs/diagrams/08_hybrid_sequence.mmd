@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant S as Sender
+    participant A as SecureText
+    participant R as Recipient
+    S->>A: Long message
+    A->>A: Generate fresh random 256 bit AES key
+    A->>A: Generate random 12 byte nonce
+    A->>A: AES-256-GCM encrypt message, get ciphertext and tag
+    A->>A: RSA-OAEP wrap AES key with recipient public key
+    A->>S: JSON envelope in Base64: version, alg, wrapped_key, nonce, ciphertext
+    S->>R: Send envelope
+    R->>A: Envelope
+    A->>A: RSA-OAEP unwrap AES key with private key
+    A->>A: AES-GCM decrypt and verify tag
+    A->>R: Plaintext, or authentication failure if altered

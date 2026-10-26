@@ -1,0 +1,31 @@
+flowchart TD
+    A(["Start: python main.py"]) --> B{"Tkinter and cryptography available?"}
+    B -- No --> B1["Print help message and exit"]
+    B -- Yes --> C["Open main window"]
+    C --> D{"Key pair loaded?"}
+    D -- No --> E["Generate key pair or import private key"]
+    E --> F
+    D -- Yes --> F{"Choose a tab"}
+    F --> G["Encrypt"]
+    F --> H["Decrypt"]
+    F --> I["Sign"]
+    F --> J["Verify"]
+    F --> K["Hybrid"]
+    G --> G1{"Input valid and within 190 bytes?"}
+    G1 -- No --> X["Show clear error"]
+    G1 -- Yes --> G2["RSA-OAEP encrypt, show Base64"]
+    H --> H1{"Base64 valid and correct key?"}
+    H1 -- No --> X
+    H1 -- Yes --> H2["Show plaintext"]
+    I --> I1["RSA-PSS sign, show Base64"]
+    J --> J1{"Signature valid?"}
+    J1 -- Yes --> J2["Show VALID"]
+    J1 -- No --> J3["Show INVALID"]
+    K --> K1["AES-GCM encrypt and RSA wrap, or unwrap and decrypt"]
+    X --> F
+    G2 --> F
+    H2 --> F
+    I1 --> F
+    J2 --> F
+    J3 --> F
+    K1 --> F

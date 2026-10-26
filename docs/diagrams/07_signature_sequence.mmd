@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant S as Signer
+    participant A as SecureText
+    participant V as Verifier
+    S->>A: Message
+    A->>A: SHA-256 hash and RSA-PSS sign with private key
+    A->>S: Signature in Base64
+    S->>V: Message and signature, public key shared earlier
+    V->>A: Message, signature, signer public key
+    A->>A: RSA-PSS verify with SHA-256
+    A->>V: VALID, or INVALID if message or key differs

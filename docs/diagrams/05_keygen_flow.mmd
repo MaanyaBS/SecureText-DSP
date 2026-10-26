@@ -1,0 +1,10 @@
+flowchart TD
+    A["Choose key size, minimum 2048 bits"] --> B["Library generates two large random primes p and q"]
+    B --> C["n = p x q"]
+    C --> D["phi of n = p minus 1 times q minus 1"]
+    D --> E["e = 65537, check gcd of e and phi = 1"]
+    E --> F["d = e inverse modulo phi"]
+    F --> G["Public key = n and e"]
+    F --> H["Private key = n and d, with p and q"]
+    G --> I["Export as PEM, safe to share"]
+    H --> J["Export as PKCS8 PEM encrypted with password"]

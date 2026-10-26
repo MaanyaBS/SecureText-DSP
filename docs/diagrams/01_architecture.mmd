@@ -1,0 +1,21 @@
+flowchart TB
+    U["User"] --> GUI
+    subgraph GUI["GUI layer - gui/main_window.py (Tkinter and ttk)"]
+        T1["Dashboard"]
+        T2["Key Management"]
+        T3["Encryption and Decryption"]
+        T4["Digital Signature"]
+        T5["Hybrid Encryption"]
+        T6["RSA Math and Help"]
+    end
+    GUI --> UT["Utilities: validation.py, file_handler.py"]
+    GUI --> CR
+    subgraph CR["Crypto layer - crypto package"]
+        K["rsa_keys.py: generate, PEM export and import"]
+        E["rsa_encryption.py: RSA-OAEP SHA-256"]
+        S["digital_signatures.py: RSA-PSS SHA-256"]
+        H["hybrid_encryption.py: AES-256-GCM plus RSA-OAEP"]
+        TY["toy_rsa.py: educational textbook RSA"]
+    end
+    CR --> LIB["Python cryptography library"]
+    UT --> FS["Local files: PEM keys, ciphertext, signatures"]
